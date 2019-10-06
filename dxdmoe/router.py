@@ -5,7 +5,7 @@ from flask import (
 from .configloader import config
 import subprocess
 
-router = Blueprint("router", __name__)
+router = Blueprint("router", __name__, url_prefix="/")
 
 # Get git hash
 def git_hash():
@@ -15,3 +15,8 @@ def git_hash():
 @router.route("/", methods=["GET"])
 def home():
     return render_template("home.html", title="File uploader", max_size=config["upload"]["max_size"], git_hash=git_hash())
+
+# 404 Page
+@router.app_errorhandler(404)
+def not_found(e):
+    return render_template("404.html", title="Page not found")

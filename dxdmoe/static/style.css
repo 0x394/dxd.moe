@@ -10,7 +10,7 @@ html, body, button, input, select, textarea {
     font-family: 'Poppins', sans-serif;
 }
 
-.is-upload .logo {
+.is-upload .logo, .is-404 .logo {
     height: 200px;
     width: 200px;
     background-position: center;
@@ -21,7 +21,7 @@ html, body, button, input, select, textarea {
     margin-bottom: 1rem;
 }
 
-.is-upload .subtitle:last-of-type {
+.is-upload .subtitle:last-of-type, .is-404 .subtitle:last-of-type {
     font-size: 1rem;
     font-weight: 100;
 }
@@ -73,4 +73,38 @@ html, body, button, input, select, textarea {
 .is-upload .urls a:hover,.is-upload .urls  a:focus,.is-upload .urls  a:active,
 .is-upload a.commit:hover,.is-upload a.commit:focus,.is-upload a.commit:active {
     color: whitesmoke!important;
+}
+
+.is-404 .button {
+    background-color: transparent;
+    color: #695aa7;
+    border-color: #695aa7;
+    border-width: 1.4px;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+.is-404  .button.is-hovered,.is-404 .button:hover {
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #695aa7;
+}
+
+.is-404 .button.is-focused,.is-404 .button:focus {
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #695aa7;
+}
+
+.is-404 .button.is-focused:not(:active),.is-404 .button:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em transparent;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #695aa7;
+}
+
+.is-404 .button.is-active,.is-404 .button:active {
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #695aa7;
 }
