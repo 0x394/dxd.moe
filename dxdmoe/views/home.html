@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-dark is-fullheight is-centered has-text-centered is-upload">
+    <div class="hero-body">
+        <div class="container">
+            <div class="logo" style="background-image: url('/static/img/rias.png');"></div>
+            <h1 class="title">dxd.moe</h1>
+            <h2 class="subtitle">A <b>ecchi</b> self-hosted file upload service</h2>
+            <h2 class="subtitle">You can upload up to {{ max_size }}</h2>
+            <form id="upload-form">
+                <button class="button">
+                    <span class="icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </span>
+                    <span>Click here or drag & drop files</span>
+                </button>
+                <input type="file" name="upload" hidden>
+            </form>
+            <div class="urls">
+                <a href="https://github.com/0x394/dxd.moe" target="_blank">
+                    Github
+                </a>
+                |
+                <a id="sharex" target="_blank">
+                    ShareX
+                </a>
+                |
+                <a href="/donation" target="_blank">
+                    Donation
+                </a>
+                |
+                <a href="/faq" target="_blank">
+                    FAQ
+                </a>
+                |
+                <a href="/donation" target="_blank">
+                    Contact
+                </a>
+            </div>
+            <p class="subtitle">Last commit: <a class="commit" href="https://github.com/0x394/dxd.moe/commit/{{ git_hash }}" target="_blank">{{ git_hash }}</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,76 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css");
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+
+html {
+    overflow: auto;
+}
+
+html, body, button, input, select, textarea {
+    font-family: 'Poppins', sans-serif;
+}
+
+.is-upload .logo {
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+}
+
+.is-upload .subtitle:last-of-type {
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.is-upload .button {
+    background-color: transparent;
+    color: #9f568f;
+    border-color: #9f568f;
+    width: 300px;
+    border-width: 1.4px;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+.is-upload  .button.is-hovered,.is-upload .button:hover {
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #9f568f;
+}
+
+.is-upload .button.is-focused,.is-upload .button:focus {
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #9f568f;
+}
+
+.is-upload .button.is-focused:not(:active),.is-upload .button:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em transparent;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #9f568f;
+}
+
+.is-upload .button.is-active,.is-upload .button:active {
+    color: whitesmoke;
+    border-color: whitesmoke;
+    background-color: #9f568f;
+}
+
+.is-upload .urls {
+    margin-top: 1.2rem;
+}
+
+.is-upload .urls a, .is-upload a.commit {
+    color: #9f568f!important;
+    transition: 0.3s;
+}
+
+.is-upload .urls a:hover,.is-upload .urls  a:focus,.is-upload .urls  a:active,
+.is-upload a.commit:hover,.is-upload a.commit:focus,.is-upload a.commit:active {
+    color: whitesmoke!important;
+}
