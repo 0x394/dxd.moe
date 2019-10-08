@@ -36,3 +36,10 @@ def json_with_statuscode(json, statuscode=200):
     res = jsonify(json)
     res.status_code = statuscode
     return res
+
+# Generate unique name
+def generate_filename(ext):
+    if ext != None:
+        return "{name}{ext}".format(name=random_id(8), ext=ext)
+    else:
+        return random_id(8)

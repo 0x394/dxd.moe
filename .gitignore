@@ -105,3 +105,7 @@ venv.bak/
 
 # config
 config.yml
+
+#upload
+/dxdmoe/upload/*
+!/dxdmoe/upload/.nofiles

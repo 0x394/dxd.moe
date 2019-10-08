@@ -38,25 +38,25 @@ def upload_files():
         os.mkdir(upload_dir)
 
     # check if user has uploaded a file
-    if len(request.files.getlist("upload")) < 1:
+    if len(request.files.getlist("upload[]")) < 1:
         return json_with_statuscode({
             "success": False,
             "error": "You must upload least than one file."
         }, 400)
 
     files = request.files.getlist("upload[]")
-
     process_files = []
 
     # process files
     for file in files:
         # Check file size
-        size = convert_to_megabites(uploaded_file_size(file))
-        if size > config["upload"]["max_size"]:
-            return process_files.append({
+        size = uploaded_file_size(file)
+        if convert_to_megabites(size) > int(config["upload"]["max_size"]):
+            process_files.append({
                 "success": False,
                 "error": "File too big"
             })
+            continue
 
         # Check file extention
         if "." in file.filename:
@@ -65,48 +65,44 @@ def upload_files():
             ext = None
 
         if ext in config["upload"]["unauthorized_ext"]:
-            return process_files.append({
+            process_files.append({
                 "success": False,
                 "error": "Invalid extention"
             })
-
-        # Generate unique name
-        def generate_filename():
-            if ext != None:
-                return "{name}.{ext}".format(name=random_id(8), ext=ext)
-            else:
-                return random_id(8)
-
-        upload_filename = generate_filename()
+            continue
+                
         retry_filename = 0
         find_uniq = False
 
-        while retry_filename < config["upload"]["retry_filename"] and not find_uniq:
-            upload_filename = generate_filename()
+        while retry_filename < int(config["upload"]["retry_filename"]) and not find_uniq:
+            upload_filename = generate_filename(ext)
 
             if not os.path.exists(os.path.join(upload_dir, upload_filename)):
                 find_uniq = True
 
             retry_filename += 1
 
-        return process_files.append({
-            "success": False,
-            "error": "Unable to find unique name."
-        })
+        if not find_uniq:
+            process_files.append({
+                "success": False,
+                "error": "Unable to find unique name."
+            })
+            continue
 
         file.save(os.path.join(upload_dir, upload_filename))
 
-        return process_files.append({
+        process_files.append({
             "success": True,
             "original_filename": file.filename,
             "filename": upload_filename,
-            "url": os.path.normpath(upload_domain, "/{}".format(upload_filename))
+            "url": os.path.join(upload_domain, upload_filename),
+            "size": size
         })
-    
-    return json_with_statuscode({
+
+    return {
         "success": True,
         "files": process_files
-    })
+    }
         
         
 # 404/405 Page
