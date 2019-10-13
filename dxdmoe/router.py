@@ -1,20 +1,52 @@
 from flask import (
     Blueprint,
     render_template,
-    request
+    request,
+    Response,
 )
 from .configloader import config
 import os
 from .utils import *
 import random
+import traceback
 
 router = Blueprint("router", __name__, url_prefix="/")
 root_folder = os.path.dirname(os.path.abspath(__file__))
+
+# 404 Page
+@router.app_errorhandler(404)
+@router.app_errorhandler(405)
+def not_found(e):
+    return render_template("error.html", title="404 - Page not found", message="Ala ala, are you lost ?"), 404
+
+@router.app_errorhandler(403)
+def unauthorized(e):
+    return render_template("error.html", title="403 - Unauthorized", message="Ala ala, are you allowed to see this page ?"), 403
+
+if config["env"] == "production":
+    @router.errorhandler(Exception)
+    def server_error(e):
+        print(traceback.format_exc())
+        return render_template("error.html", title="500 - Internal server error", message="Ala ala, an error occured, try in few minutes"), 500
+
+@router.app_errorhandler(500)
+def server_error(e):
+    return render_template("error.html", title="500 - Internal server error", message="Ala ala, an error occured, try in few minutes"), 500
 
 # Home route
 @router.route("/", methods=["GET"])
 def home():
     return render_template("home.html", title="File uploader", max_size=config["upload"]["max_size"], git_hash=git_hash())
+
+# FAQ route
+@router.route("/faq", methods=["GET"])
+def faq():
+    return render_template("faq.html", title="FAQ", ext_unauthorized=config["upload"]["unauthorized_ext"], git_hash=git_hash())
+
+# ShareX route
+@router.route("/sharex", methods=["GET"])
+def sharex():
+    return render_template("sharex.html", title="ShareX", git_hash=git_hash())
 
 # Upload files
 @router.route("/upload", methods=["POST"])
@@ -95,7 +127,7 @@ def upload_files():
             "success": True,
             "original_filename": file.filename,
             "filename": upload_filename,
-            "url": os.path.join(upload_domain, upload_filename),
+            "url": "{}/{}".format(upload_domain, upload_filename),
             "size": size
         })
 
@@ -103,10 +135,3 @@ def upload_files():
         "success": True,
         "files": process_files
     }
-        
-        
-# 404/405 Page
-@router.app_errorhandler(405)
-@router.app_errorhandler(404)
-def not_found(e):
-    return render_template("404.html", title="Page not found")

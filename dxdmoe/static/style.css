@@ -10,7 +10,7 @@ html, body, button, input, select, textarea {
     font-family: 'Poppins', sans-serif;
 }
 
-.is-upload .logo, .is-404 .logo {
+.is-upload .logo {
     height: 200px;
     width: 200px;
     background-position: center;
@@ -19,9 +19,10 @@ html, body, button, input, select, textarea {
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1rem;
+    background-image: url('/static/img/rias.png');
 }
 
-.is-upload .subtitle:last-of-type, .is-404 .subtitle:last-of-type {
+.is-upload .subtitle:last-of-type, .is-error .subtitle:last-of-type {
     font-size: 1rem;
     font-weight: 100;
 }
@@ -65,17 +66,30 @@ html, body, button, input, select, textarea {
     margin-top: 1.2rem;
 }
 
-.is-upload .urls a, .is-upload a.commit {
+.is-upload .urls a, .is-upload a.commit, .up-file a {
     color: #9f568f!important;
     transition: 0.3s;
 }
 
 .is-upload .urls a:hover,.is-upload .urls  a:focus,.is-upload .urls  a:active,
-.is-upload a.commit:hover,.is-upload a.commit:focus,.is-upload a.commit:active {
+.is-upload a.commit:hover,.is-upload a.commit:focus,.is-upload a.commit:active,
+.is-upload .up-files-list .up-file a:hover,.is-upload .up-files-list .up-file a:focus,.is-upload .up-files-list .up-file a:active {
     color: whitesmoke!important;
 }
 
-.is-404 .button {
+.is-error .logo {
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    background-image: url('/static/img/akeno.jpg');
+}
+
+.is-error .button {
     background-color: transparent;
     color: #695aa7;
     border-color: #695aa7;
@@ -84,27 +98,263 @@ html, body, button, input, select, textarea {
     transition: 0.3s;
 }
 
-.is-404  .button.is-hovered,.is-404 .button:hover {
+.is-error  .button.is-hovered,.is-error .button:hover {
     color: whitesmoke;
     border-color: whitesmoke;
     background-color: #695aa7;
 }
 
-.is-404 .button.is-focused,.is-404 .button:focus {
+.is-error .button.is-focused,.is-error .button:focus {
     color: whitesmoke;
     border-color: whitesmoke;
     background-color: #695aa7;
 }
 
-.is-404 .button.is-focused:not(:active),.is-404 .button:focus:not(:active) {
+.is-error .button.is-focused:not(:active),.is-error .button:focus:not(:active) {
     box-shadow: 0 0 0 0.125em transparent;
     color: whitesmoke;
     border-color: whitesmoke;
     background-color: #695aa7;
 }
 
-.is-404 .button.is-active,.is-404 .button:active {
+.is-error .button.is-active,.is-error .button:active {
+    color: whitesmoke;
+    border-color: #f5f5f5;
+    background-color: #695aa7;
+}
+
+.is-upload.hero .tabs {
+    margin: auto;
+    width: 300px;
+    padding-bottom: 1.5rem;
+}
+
+.is-upload.hero .tabs ul {
+    border-bottom: 1px;
+    border-bottom-color: #9f568f;
+    border-bottom-style: solid;
+}
+
+.is-upload.hero.is-dark .tabs.is-boxed li.is-active a {
     color: whitesmoke;
     border-color: whitesmoke;
-    background-color: #695aa7;
+    background-color: #9f568f;
+    border: solid #9f568f 1px;
+}
+
+.hero.is-dark .tabs.is-boxed a:hover {
+    border-bottom: solid #9f568f 1px;
+}
+
+.hero.is-dark .label {
+    color: whitesmoke;
+}
+
+.is-upload .control {
+    display: initial;
+}
+
+.is-upload .select select, .is-upload input {
+    width: 300px;
+}
+
+.input:active, .input:focus, .is-active.input, .is-active.textarea, .is-focused.input, .is-focused.textarea, .select select.is-active, .select select.is-focused, .select select:active, .select select:focus, .textarea:active, .textarea:focus {
+    border-color: #9f568f;
+    box-shadow: 0 0 0 0.125em rgba(159, 86, 143,.25);
+}
+
+.select:not(.is-multiple):not(.is-loading)::after, .select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: #9f568f;
+}
+
+.up-files-list {
+    padding-top: 2rem;
+    padding-bottom: 0.8rem;
+    width: 300px;
+    margin: auto;
+}
+
+.up-files-list .up-file:not(:first-child) {
+    margin-top: 2.5rem;
+}
+
+.up-files-list .up-file img {
+    display: block;
+    margin: auto;
+    width: 100px;
+}
+
+.up-files-list .progress::-webkit-progress-value {
+    background-color: #9f568f
+}
+
+.up-files-list .progress::-moz-progress-bar {
+    background-color: #9f568f
+}
+
+.up-files-list .progress::-ms-fill {
+    background-color: #9f568f;
+    border: none
+}
+
+.up-files-list .up-file a {
+    padding-bottom: 0.8rem;
+    display: block;
+}
+
+.up-files-list .up-file .filename {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+}
+
+.is-faq .logo {
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    background-image: url('/static/img/xenovia.jpg');
+}
+
+.is-faq .urls {
+    margin-top: 1.2rem;
+}
+
+.is-faq .urls a, .is-faq a.commit {
+    color: #80bbf8!important;
+    transition: 0.3s;
+}
+
+.is-faq .urls a:hover,.is-faq .urls  a:focus,.is-faq .urls  a:active,
+.is-faq a.commit:hover,.is-faq a.commit:focus,.is-faq a.commit:active {
+    color: whitesmoke!important;
+}
+
+.is-faq .question .box {
+    color: whitesmoke;
+    background-color: #464646;
+    box-shadow: 0 2px 5px rgba(10,10,10,.1), 0 0 0 3px rgba(10,10,10,.1);
+}
+
+.is-faq .subtitle {
+    font-size: 1rem;
+}
+
+.is-faq .question span {
+    font-size: 20px;
+    display: block;
+    color: #80bbf8;
+    font-weight: 900;
+    text-decoration: underline;
+    text-align: left;
+    padding-right: 0.5rem;
+}
+
+.is-faq .question a {
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+.is-faq .question a:hover,.is-faq .question  a:focus,.is-faq .question  a:active {
+    color: whitesmoke!important;
+}
+
+.is-faq .question:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.is-faq .question code {
+    vertical-align: text-top;
+    background-color: #363636;
+    color: #80bbf8;
+    font-size: .875em;
+    font-weight: 400;
+    padding: .25em .5em .25em;
+}
+
+.is-sharex .logo {
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    background-image: url('/static/img/koneko.png');
+}
+
+.is-sharex .urls {
+    margin-top: 1.2rem;
+}
+
+.is-sharex .urls a, .is-sharex a.commit {
+    color: #a6a5a6!important;
+    transition: 0.3s;
+}
+
+.is-sharex .urls a:hover,.is-sharex .urls  a:focus,.is-sharex .urls  a:active,
+.is-sharex a.commit:hover,.is-sharex a.commit:focus,.is-sharex a.commit:active {
+    color: whitesmoke!important;
+}
+
+.is-sharex .subtitle {
+    font-size: 1rem;
+}
+
+.is-sharex .select select, .is-sharex input {
+    width: 300px;
+}
+
+.is-sharex .input:active, .is-sharex .input:focus, .is-sharex .is-active.input, .is-sharex .is-active.textarea, .is-sharex .is-focused.input, .is-sharex .is-focused.textarea, .is-sharex .select select.is-active, .is-sharex .select select.is-focused, .is-sharex .select select:active, .is-sharex .select select:focus {
+    border-color: #a6a5a6;
+    box-shadow: 0 0 0 0.125em rgba(166, 165, 166,.25);
+}
+
+.is-sharex .select:not(.is-multiple):not(.is-loading)::after, .is-sharex .select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: #a6a5a6;
+}
+
+.is-sharex .button {
+    background-color: transparent;
+    color: #a6a5a6;
+    border-color: #a6a5a6;
+    width: 300px;
+    border-width: 1.4px;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+.is-sharex  .button.is-hovered,.is-sharex .button:hover {
+    color: #363636;
+    border-color: #363636;
+    background-color: #a6a5a6;
+}
+
+.is-sharex .button.is-focused,.is-sharex .button:focus {
+    color: #363636;
+    border-color: #363636;
+    background-color: #a6a5a6;
+}
+
+.is-sharex .button.is-focused:not(:active),.is-sharex .button:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em transparent;
+    color: #363636;
+    border-color: #363636;
+    background-color: #a6a5a6;
+}
+
+.is-sharex .button.is-active,.is-sharex .button:active {
+    color: #363636;
+    border-color: #363636;
+    background-color: #a6a5a6;
+}
+
+#sharex-config {
+    display: inline-block;
 }

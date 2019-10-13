@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-dark is-fullheight is-centered has-text-centered is-sharex">
+    <div class="hero-body">
+        <div class="container">
+            <div class="logo"></div>
+            <h1 class="title">dxd.moe</h1>
+            <h2 class="subtitle">Share<b>X</b></h2>
+            <form id="sharex-config">
+                <div class="field">
+                    <label class="label">Domain preference:</label>
+                    <div class="control">
+                        <div class="select" id="domain-choise">
+                            <select name="domain">
+                                <option value="random">Random</option>
+                                <option value="rias.dxd.moe">rias.dxd.moe</option>
+                                <option value="akeno.dxd.moe">akeno.dxd.moe</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button">
+                            <span class="icon">
+                                <i class="fas fa-download"></i>
+                            </span>
+                            <span>Get ShareX configuration</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="urls">
+                <a href="https://github.com/0x394/dxd.moe" target="_blank">
+                    Github
+                </a>
+                |
+                <a href="/faq">
+                    FAQ
+                </a>
+                |
+                <a href="/">
+                    Home
+                </a>
+            </div>
+            <p class="subtitle">Last commit: <a class="commit"
+                    href="https://github.com/0x394/dxd.moe/commit/{{ git_hash }}" target="_blank">{{ git_hash }}</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="/static/script.js"></script>
+{% endblock %}

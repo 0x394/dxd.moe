@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-dark is-fullheight is-centered has-text-centered is-faq">
+    <div class="hero-body">
+        <div class="container">
+            <div class="logo"></div>
+            <h1 class="title">dxd.moe</h1>
+            <h2 class="subtitle"><b>F</b>A<b>Q</b></h2>
+            <div class="question">
+                <div class="box">
+                    <div class="media-content">
+                        <div class="content">
+                            <p><span>What is this?</span> dxd.moe is an easy to use, open source and completely free
+                                file upload service. We accept your files, photos, documents, anything, and give you
+                                back a shareable link for you to send to others.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="box">
+                    <div class="media-content">
+                        <div class="content">
+                            <p><span>Will you keep my files forever?</span> Unless we receive a copyright complain or
+                                some other bullshit, we will.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="box">
+                    <div class="media-content">
+                        <div class="content">
+                            <p><span>Why should I use this?</span> Why not?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="box">
+                    <div class="media-content">
+                        <div class="content">
+                            <p><span>Where I can report somthing illegal here or request feature?</span> You can contact me by email at <a
+                                    href="mailto:oniisan@waifu.club">oniisan@waifu.club</a>, by Twitter: <a
+                                    href="https://twitter.com/0x394" target="_blank">@0x394</a> or by dm on Discord:
+                                <u>.ndebian#0667</u>. For features, you can also create an issue on <a href="https://github.com/0x394/dxd.moe" target="_blank">Github</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="box">
+                    <div class="media-content">
+                        <div class="content">
+                            {% if ext_unauthorized|length > 0 %}
+                            <p><span>All extensions are accepted?</span> No, the following extensions are disabled:
+                                {% for ext in ext_unauthorized %}
+                                    <code>{{ ext }}</code>
+                                {% endfor %}
+                            </p>
+                            {% else %}
+                            <p><span>All extensions are accepted?</span> Yes!
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="urls">
+                <a href="https://github.com/0x394/dxd.moe" target="_blank">
+                    Github
+                </a>
+                |
+                <a href="/sharex">
+                    ShareX
+                </a>
+                |
+                <a href="/">
+                    Home
+                </a>
+            </div>
+            <p class="subtitle">Last commit: <a class="commit"
+                    href="https://github.com/0x394/dxd.moe/commit/{{ git_hash }}" target="_blank">{{ git_hash }}</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
