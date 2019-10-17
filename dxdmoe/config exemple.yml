@@ -1,0 +1,12 @@
+# APP GLOBAL
+port: 1337
+env: development # development or production
+
+# UPLOAD
+upload:
+  max_size: 500 # In MB
+  folder: ./upload
+  domain:
+    - upload.exemple.com
+  unauthorized_ext:
+  retry_filename: 15
