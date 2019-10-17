@@ -257,7 +257,7 @@ $(document).ready(() => {
         e.preventDefault();
 
         const domain = $("#domain-choise select").val();
-        const validDomain = ["rias.dxd.moe", "akeno.dxd.moe", "random"];
+        const validDomain = ["rias.dxd.moe", "akeno.dxd.moe", "koneko.dxd.moe", "asia.dxd.moe", "irina.dxd.moe", "xenovia.dxd.moe", "random"];
 
         if (!validDomain.includes(domain))
             return toast.fire({ title: "Invalid domain", type: "error" });
